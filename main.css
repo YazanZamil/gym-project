@@ -975,6 +975,10 @@ del {
     .yazan {
         min-height: 200vh;
     }
+
+    .outerdiv {
+        margin-top: 650px;
+    }
 }
 
 /* Start BMI Page style */
