@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="main.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="Contact_us">
+        <div class="nav">
+            <img src="./assets/finalLogo-removebg-preview.png" alt="Logo not Found">
+
+            <!-- Burger Menu Icon -->
+            <div class="burger-menu" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About Us.html">About Us</a></li>
+                <li><a href="Products.html">Products</a></li>
+                <li><a href="Contact Us.html">Contact Us</a></li>
+                <li><a href="Testimonials.html">Testimonials</a></li>
+                <li><a href="Sitemap.html">Sitemap</a></li>
+                <li
+                    style="background-color: #d75e49; padding: 10px; border-radius: 8px; width: 70px; text-align: center;">
+                    <a href="BMI.html">BMI</a></li>
+            </ul>
+        </div>
+        <div class="form">
+            <div class="container">
+                <div class="content">
+                    <div class="left-side">
+                        <div class="address details">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="topic">Address</div>
+                            <div class="text-one">Amman - Tabrbour</div>
+                            <div class="text-two">Amman - jubaiha</div>
+                        </div>
+                        <div class="phone details">
+                            <i class="fas fa-phone-alt"></i>
+                            <div class="topic">Phone</div>
+                            <div class="text-one">+962 798 726026</div>
+                            <div class="text-two">+962 790055614</div>
+                        </div>
+                        <div class="email details">
+                            <i class="fas fa-envelope"></i>
+                            <div class="topic">Email</div>
+                            <div class="text-one">nopain@gmail.com</div>
+                            <div class="text-two">yazanz673@gmail.com</div>
+                        </div>
+                    </div>
+                    <div class="right-side">
+                        <div class="topic-text">Get in Touch</div>
+                        <p>If you have any questions or want to learn more about our fitness programs, feel free to
+                            contact us.</p>
+                        <form action="#">
+                            <div class="input-box">
+                                <input type="text" placeholder="Enter your name">
+                            </div>
+                            <div class="input-box">
+                                <input type="text" placeholder="Enter your email">
+                            </div>
+                            <div class="input-box message-box">
+                                <textarea name="message" id="1" cols="25" rows="10"
+                                    placeholder="Enter your Message"></textarea>
+                            </div>
+                            <div class="button">
+                                <input type="button" value="Send Now">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    function toggleMenu() {
+        const navList = document.querySelector('.nav ul');
+        navList.classList.toggle('active');
+    }
+</script>
+
+</html>

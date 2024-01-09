@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <title>BMI Calculator</title>
+</head>
+
+<body>
+    <div class="nav">
+        <img src="./assets/finalLogo-removebg-preview.png" alt="Logo not Found">
+
+        <!-- Burger Menu Icon -->
+        <div class="burger-menu" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About Us.html">About Us</a></li>
+            <li><a href="Products.html">Products</a></li>
+            <li><a href="Contact Us.html">Contact Us</a></li>
+            <li><a href="Testimonials.html">Testimonials</a></li>
+            <li><a href="Sitemap.html">Sitemap</a></li>
+            <li style="background-color: #d75e49; padding: 10px; border-radius: 8px; width: 70px; text-align: center;">
+                <a href="BMI.html">BMI</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container-fluid BMI">
+        <div class="container">
+            <form id="bmiForm" onsubmit="calculateBMI(); return false;">
+
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="name">Name:</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" id="name" class="form-control">
+                        <div id="nameError" class="error-message"></div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="email">Email:</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="email" id="email" class="form-control">
+                        <div id="emailError" class="error-message"></div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="mobile">Mobile Phone:</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="tel" id="mobile" class="form-control">
+                        <div id="mobileError" class="error-message"></div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="gender">Gender:</label>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="male" value="male" name="gender">
+                            <label class="form-check-label" for="male">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="female" value="female" name="gender">
+                            <label class="form-check-label" for="female">Female</label>
+                        </div>
+                        <div id="genderError" class="error-message"></div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="weight">Weight (kg):</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" id="weight" class="form-control">
+                        <div id="weightError" class="error-message"></div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="height">Height (cm):</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" id="height" class="form-control">
+                        <div id="heightError" class="error-message"></div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-primary">Calculate BMI</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div id="resultPopup" class="result-popup"></div>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        function toggleMenu() {
+            const navList = document.querySelector('.nav ul');
+            navList.classList.toggle('active');
+        }
+        function validateForm() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const mobile = document.getElementById('mobile').value;
+            const weight = document.getElementById('weight').value;
+            const height = document.getElementById('height').value;
+            const gender = document.querySelector('input[name="gender"]:checked');
+
+            let isValid = true;
+
+            if (!name) {
+                displayErrorMessage('name', 'Please enter your name.');
+                isValid = false;
+            } else {
+                hideErrorMessage('name');
+            }
+
+            if (!email || !isValidEmail(email)) {
+                displayErrorMessage('email', 'Please enter a valid email address.');
+                isValid = false;
+            } else {
+                hideErrorMessage('email');
+            }
+
+            if (!mobile || !isValidMobile(mobile)) {
+                displayErrorMessage('mobile', 'Please enter a valid mobile phone number.');
+                isValid = false;
+            } else {
+                hideErrorMessage('mobile');
+            }
+
+            if (!gender) {
+                displayErrorMessage('gender', 'Please select your gender.');
+                isValid = false;
+            } else {
+                hideErrorMessage('gender');
+            }
+
+            if (!weight) {
+                displayErrorMessage('weight', 'Please enter your weight.');
+                isValid = false;
+            } else {
+                hideErrorMessage('weight');
+            }
+
+            if (!height) {
+                displayErrorMessage('height', 'Please enter your height.');
+                isValid = false;
+            } else {
+                hideErrorMessage('height');
+            }
+
+            return isValid;
+        }
+
+        function displayErrorMessage(fieldId, message) {
+            const errorMessage = document.getElementById(`${fieldId}Error`);
+            errorMessage.innerHTML = message;
+            errorMessage.style.display = 'block';
+        }
+
+        function hideErrorMessage(fieldId) {
+            const errorMessage = document.getElementById(`${fieldId}Error`);
+            errorMessage.innerHTML = '';
+            errorMessage.style.display = 'none';
+        }
+
+        function isValidEmail(email) {
+            // A simple email validation, you can enhance it as needed
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function isValidMobile(mobile) {
+            // A simple mobile number validation, you can enhance it as needed
+            const mobileRegex = /^[0-9]{10}$/;
+            return mobileRegex.test(mobile);
+        }
+    </script>
+</body>
+
+</html>
