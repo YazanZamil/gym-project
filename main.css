@@ -63,12 +63,11 @@ ul {
     transition: 0.4s;
 }
 
-/* Add this media query for small screens */
+/* this is responsive in the css by media query */
 @media only screen and (max-width: 768px) {
     .burger-menu {
         display: flex;
         flex-direction: column;
-        cursor: pointer;
     }
 
     .nav ul {

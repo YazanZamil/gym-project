@@ -10,9 +10,16 @@
 
     <title>Testimonials</title>
 
-
+<script>
+    var d = new Date();
+    document.write('<span style="color: white;">' + d.toLocaleDateString() + '  ' + d.toLocaleTimeString() + '</span>');
+</script>
 </head>
-
+    <style>
+        body {
+            background-color: #383838;
+        }
+    </style>
 <body>
     <div class="yazan">
         <div class="nav">
@@ -139,7 +146,7 @@
                         <h4>Results Beyond Expectations: </h4>
                         <p>“ Choosing Eyas as my personal trainer was the best decision. The results have surpassed my
                             expectations. The
-                            tailored workouts, nutritional guidance, and constant support have made a significant impact
+                            tailored workouts, nutritional guidance, and varant support have made a significant impact
                             on my fitness journey.
                             Highly recommend! ”</p>
                     </div>
@@ -174,9 +181,12 @@
 </body>
 <script>
     function toggleMenu() {
-        const navList = document.querySelector('.nav ul');
+        var navList = document.querySelector('.nav ul');
         navList.classList.toggle('active');
     }
+
+
+
 </script>
 
 </html>

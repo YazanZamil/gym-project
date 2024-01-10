@@ -7,8 +7,16 @@
     <title>Contact Us</title>
     <link rel="stylesheet" href="main.css">
 
-
+<script>
+    var d = new Date();
+    document.write('<span style="color: white;">' + d.toLocaleDateString() + '  ' + d.toLocaleTimeString() + '</span>');
+</script>
 </head>
+<style>
+    body {
+        background-color: #383838;
+    }
+</style>
 
 <body>
     <div class="Contact_us">
@@ -85,9 +93,12 @@
 </body>
 <script>
     function toggleMenu() {
-        const navList = document.querySelector('.nav ul');
+        var navList = document.querySelector('.nav ul');
         navList.classList.toggle('active');
     }
+
+
+
 </script>
 
 </html>

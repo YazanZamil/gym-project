@@ -1,9 +1,10 @@
 function calculateBMI() {
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const mobile = document.getElementById('mobile').value;
-    const weight = parseFloat(document.getElementById('weight').value);
-    const height = parseFloat(document.getElementById('height').value);
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var mobile = document.getElementById('mobile').value;
+    var weight = parseFloat(document.getElementById('weight').value);
+    var height = parseFloat(document.getElementById('height').value);
+
 
     if (!validateForm()) {
         return;
@@ -14,14 +15,14 @@ function calculateBMI() {
         return;
     }
 
-    const bmi = calculateBMIValue(weight, height);
-    const result = getBMIResult(bmi);
+    var bmi = calculateBMIValue(weight, height);
+    var result = getBMIResult(bmi);
 
     showResultPopup(bmi, result, name, email, mobile, weight, height);
 }
 
 function calculateBMIValue(weight, height) {
-    const heightInMeters = height / 100;
+    var heightInMeters = height / 100;
     return weight / (heightInMeters * heightInMeters);
 }
 
@@ -38,7 +39,7 @@ function getBMIResult(bmi) {
 }
 
 function showResultPopup(bmi, result, name, email, mobile, weight, height) {
-    const popup = document.getElementById('resultPopup');
+    var popup = document.getElementById('resultPopup');
     popup.innerHTML = `
         <p style="color: green;">Your BMI: ${bmi.toFixed(2)}</p>
         <p>Result: ${result}</p>
